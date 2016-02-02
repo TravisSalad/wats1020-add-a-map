@@ -6,6 +6,8 @@
    HTML structures and invoke the proper JS code accordingly. Be sure
    to reference the Bootstrap documentation.)
 */
+$(document).ready(function(){
+
 
 // TODO: Inside of your on ready handler, invoke the Leaflet.js library
 // to draw a map in your `#map-container` div.
@@ -19,3 +21,13 @@
 // interesting locations. (You'll need to figure out the latitude/longitude for
 // these locations using a mapping tool such as Google Maps.)
 
+
+
+var map = L.map('map').setView([46.8529, 121.7604], 13);
+
+$('#about a').click(function(e) {
+  e.preventDefault()
+  $(this).tab('show')
+})
+
+});
