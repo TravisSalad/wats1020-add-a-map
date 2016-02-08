@@ -1,26 +1,35 @@
+//create an on ready function
+
 $(document).ready(function() {
+
 
 var osmUrl='http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
 var osmAttrib='Map data © <a href="http://openstreetmap.org">OpenStreetMap</a> contributors';
+
+//create open street layer for map
 var osm = new L.TileLayer(osmUrl, {minZoom: 8, maxZoom: 18, attribution: osmAttrib});
 
+//create satellite layer for map
 var satLayer = L.tileLayer('http://{s}.mqcdn.com/tiles/1.0.0/sat/{z}/{x}/{y}.png', {
   attribution: '&copy; <a href=<a href="http://osm.org/copyright" title="OpenStreetMap" target="_blank">OpenStreetMap</a> contributors | Tiles Courtesy of <a href="http://www.mapquest.com/" title="MapQuest" target="_blank">MapQuest</a> <img src="http://developer.mapquest.com/content/osm/mq_logo.png" width="16" height="16">',
   subdomains: ['otile1', 'otile2', 'otile3', 'otile4']
 });
-
+//create map view layer for map
 var drawLayer = L.tileLayer('http://{s}.mqcdn.com/tiles/1.0.0/osm/{z}/{x}/{y}.png', {
   attribution: '&copy; <a href="http://osm.org/copyright" title="OpenStreetMap" target="_blank">OpenStreetMap</a> contributors | Tiles Courtesy of <a href="http://www.mapquest.com/" title="MapQuest" target="_blank">MapQuest</a> <img src="http://developer.mapquest.com/content/osm/mq_logo.png" width="16" height="16">',
   subdomains: ['otile1','otile2','otile3','otile4']
 });
 
+//create marker variables with markers and content for each
 var paradise = L.marker([46.7858, -121.7376]).bindPopup("<b>Paradise Valley</b><br>Elevation 5,400 ft."),
     crystal = L.marker([46.9353181, -121.47469790000002]).bindPopup("<b>Crystal Mountain Resort</b><br>Elevation 3,912 ft."),
     peak = L.marker([46.8529, -121.7604]).bindPopup("<b>Mt Rainier Peak</b><br>Elevation 14,409 ft."),
     longmire = L.marker([46.7494, -121.8092]).bindPopup("<b>Longmire</b><br>Elevation 2,761 ft.");
 
+//create variable that contains all markers
 var markers = L.layerGroup([paradise, crystal, peak, longmire]);
 
+//create hotel variables that contain markers, hotel names and links to their web pages
 var paradiseInn = L.marker([46.7855911, -121.73671260000003]).bindPopup('<b>Paradise Inn</b><br><a href="http://www.mtrainierguestservices.com/accommodations/paradise-inn">website</a>'),
     threeBears = L.marker([46.7425697, -121.92176119999999]).bindPopup('<b>Three Bears Lodge</b><br><a href="http://www.rainierlodging.com/">website</a>'),
     stoneCreek = L.marker([46.743187, -121.92326700000001]).bindPopup('<b>Stone Creek Lodge</b><br><a href="http://www.stonecreeklodge.net/">website</a>'),
@@ -29,25 +38,30 @@ var paradiseInn = L.marker([46.7855911, -121.73671260000003]).bindPopup('<b>Para
     stormKing = L.marker([46.752514, -121.93916100000001]).bindPopup('<b>Storm King Spa and Cabins</b><br><a href="http://www.stormkingspa.com">website</a>'),
     copperCreek = L.marker([46.756431, -121.96061400000002]).bindPopup('<b>Copper Creek Inn and Restaurant</b><br><a href="http://www.coppercreekinn.com">website</a>');
 
+//create a variable to bundle all hotels together
 var hotels = L.layerGroup([paradiseInn, threeBears, stoneCreek, theLodgeNear, mountHaven, stormKing, copperCreek]);
 
+//add satellite, map view, and open street maps to the map layer
 var mapLayers = {
   "Satellite": satLayer,
   "Map View": drawLayer,
   "Open Street Maps": osm,
 }
 
+//add markers and hotels to map overlay
 var overlayMaps = {
   "Markers": markers,
   "Hotels": hotels
 }
 
+//set view of the map with location and zoom level
 var map = L.map('map-container').setView([46.852, -121.760], 10);
 
+//add map layers, satellite and overlay layers to map
 L.control.layers(mapLayers, overlayMaps).addTo(map);
 satLayer.addTo(map);
 
-
+//create a function to show content for each tab that is clicked
 $('#about a').click(function(el) {
   el.preventDefault();
   $(this).tab('show');
