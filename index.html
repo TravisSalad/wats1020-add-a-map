@@ -46,9 +46,9 @@
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">About <span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
-                <li><a href="#description">Description</a></li>
-                <li><a href="#history">History</a></li>
-                <li><a href="#stats">Stats</a></li>
+                <li><a href="#about">Description</a></li>
+                <li><a href="#about">History</a></li>
+                <li><a href="#about">Stats</a></li>
               </ul>
             </li>
             <li><a href="#map">Map</a></li>
@@ -183,24 +183,40 @@
           <!-- TODO: Use CSS to enhance the look of these statistics. Feel free to
                       enhance the HTML if you need to. -->
           <h2>Statistics</h2>
-          <dl>
-            <dt>Elevation</dt>
-            <dd>14,411 ft (4,392 m)</dd>
-            <dt>Prominence</dt>
-            <dd>13,211 ft (4,027 m)</dd>
-            <dt>Range</dt>
-            <dd>Cascade Range</dd>
-            <dt>Type</dt>
-            <dd>Stratovolcano</dd>
-            <dt>Age of Rock</dt>
-            <dd>500,000 years</dd>
-            <dt>Last Eruption</dt>
-            <dd>November to December, 1894</dd>
-            <dt>First Ascent</dt>
-            <dd>1870 by Hazard Stevens and P. B. Van Trump</dd>
-            <dt>Easiest Route</dt>
-            <dd>Rock/ice climb via Disappointment Cleaver</dd>
-          </dl>
+          <table class="table table-striped table-bordered">
+            <tr>
+              <th>Elevation</th>
+              <td>14,411 ft (4,392 m)</td>
+            </tr>
+            <tr>
+              <th>Prominence</th>
+              <td>13,211 ft (4,027 m)</td>
+            </tr>
+            <tr>
+              <th>Range</th>
+              <td>Cascade Range</td>
+            </tr>
+            <tr>
+              <th>Type</th>
+              <td>Stratovolcano</td>
+            </tr>
+            <tr>
+              <th>Age of Rock</th>
+              <td id="details">500,000 years</td>
+            </tr>
+            <tr>
+              <th>Last Eruption</th>
+              <td>November to December, 1894</td>
+            </tr>
+            <tr>
+              <th>First Ascent</th>
+              <td>1870 by Hazard Stevens and P. B. Van Trump</td>
+            </tr>
+            <tr>
+              <th>Easiest Route</th>
+              <td>Rock/ice climb via Disappointment Cleaver</td>
+            </tr>
+          </table>
         </div>
         </div>
       </div>

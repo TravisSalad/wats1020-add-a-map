@@ -1,6 +1,18 @@
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
+body {
+  padding-top: 0px;
+}
+
+.navbar {
+  margin-bottom: 0px;
+}
+
+.links-list {
+  list-style: none;
+  padding-left: 0;
+}
 
 #map-container { height: 300px;}
 
