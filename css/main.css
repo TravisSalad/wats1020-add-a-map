@@ -15,11 +15,16 @@ body {
 }
 
 .jumbotron {
-  padding-top: 10px;
+  padding-top: 75px;
 }
 
 .jumbotron h1 {
   margin-bottom: 20px;
+}
+
+.affix {
+  width: 100%;
+  z-index: 1;
 }
 
 #map-container { height: 300px;}
